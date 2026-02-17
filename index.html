@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido al Reto</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo extra para el input de 'Otro' */
+        #input-genero-otro {
+            display: none;
+            margin-top: 10px;
+            animation: fadeEffect 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <!-- PASO 1: BIENVENIDA -->
+        <div id="pantalla-bienvenida">
+            <h1>¡Bienvenido!</h1>
+            <p>Regístrate para comenzar la experiencia.</p>
+            <button onclick="mostrarRegistro()">Empezar</button>
+        </div>
+
+        <!-- PASO 2: REGISTRO (Nombre y Género) -->
+        <div id="pantalla-registro" class="hidden" style="display:none;">
+            <h2>📝 Registro</h2>
+            <form id="form-inicio" onsubmit="guardarRegistro(event)">
+                
+                <!-- Pregunta Nombre -->
+                <label style="display:block; text-align:left; font-weight:bold;">Nombre que pones en los jueguitos</label>
+                <input type="text" name="E1_P1" placeholder="Tu nombre" required>
+
+                <!-- Pregunta Género -->
+                <label style="display:block; text-align:left; font-weight:bold;">Género</label>
+                <select name="E1_P2" id="select-genero" onchange="verificarOtro()" required>
+                    <option value="" disabled selected>Selecciona</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="OTRO">OTRO</option>
+                </select>
+                
+                <!-- Input oculto si elige OTRO -->
+                <input type="text" id="input-genero-otro" name="E2_P2_OTRO" placeholder="Especifica cuál...">
+
+                <button type="submit">Continuar</button>
+            </form>
+        </div>
+
+        <!-- PASO 3: INSTRUCCIONES -->
+        <div id="pantalla-instrucciones" class="hidden" style="display:none;">
+            <h2>🚀 ¡Listo!</h2>
+            <div class="mensaje-instruccion">
+                <p><strong>¡Tienes que ir al Espacio 1!</strong></p>
+                <p>Busca el código QR en esa ubicación para comenzar la primera encuesta.</p>
+            </div>
+            <button onclick="window.location.href='index.html'">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar registro
+        function mostrarRegistro() {
+            document.getElementById('pantalla-bienvenida').style.display = 'none';
+            document.getElementById('pantalla-registro').style.display = 'block';
+        }
+
+        // Lógica para mostrar input "Otro"
+        function verificarOtro() {
+            const select = document.getElementById('select-genero');
+            const inputOtro = document.getElementById('input-genero-otro');
+            if (select.value === 'OTRO') {
+                inputOtro.style.display = 'block';
+                inputOtro.required = true;
+            } else {
+                inputOtro.style.display = 'none';
+                inputOtro.required = false;
+            }
+        }
+
+        // Guardar registro y mostrar instrucciones
+        function guardarRegistro(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Guardamos datos básicos en localStorage para no pedirlos de nuevo
+            localStorage.setItem('usuario_registrado', 'true');
+            localStorage.setItem('nombre_usuario', formData.get('E1_P1'));
+
+            alert("¡Registro completado!");
+            
+            document.getElementById('pantalla-registro').style.display = 'none';
+            document.getElementById('pantalla-instrucciones').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

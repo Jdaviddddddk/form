@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Espacio 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>📍 Espacio 3</h2>
+        <form id="regForm" onsubmit="enviarFormularioFinal(event, 3)">
+            
+            <!-- PASO 1 -->
+            <div class="tab">
+                <h3>Pregunta 1</h3>
+                <p>Si fueras una emoción al momento de diseñar ¿cuál serías?</p>
+                <select name="E3_P1" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Intensidad">Intensidad</option>
+                    <option value="Calma">Calma</option>
+                    <option value="Caos creativo">Caos creativo</option>
+                    <option value="Determinación">Determinación</option>
+                    <option value="Misterio">Misterio</option>
+                    <option value="Curiosidad">Curiosidad</option>
+                </select>
+                <button type="button" class="next" onclick="nextPrev(1)">Siguiente</button>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="tab">
+                <h3>Pregunta 2</h3>
+                <p>Cuando trabajas en algo, te identificas más con:</p>
+                <select name="E3_P2" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="El estratega">El estratega</option>
+                    <option value="El que experimenta">El que experimenta</option>
+                    <option value="El que ejecuta sin miedo">El que ejecuta sin miedo</option>
+                    <option value="El obsesivo del detalle">El obsesivo del detalle</option>
+                    <option value="El que propone ideas locas">El que propone ideas locas</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="tab">
+                <h3>Pregunta 3</h3>
+                <p>¿Qué estilos te gustan más? (Ej: Barroco, Gótico, Minimalista, Cartoon, etc)</p>
+                <input type="text" name="E3_P3" placeholder="Escribe tus estilos favoritos..." required>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 4 -->
+            <div class="tab">
+                <h3>Pregunta 4</h3>
+                <p>¿Qué frase se acerca más a tu mentalidad creativa?</p>
+                <select name="E3_P4" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Lo hago diferente o no lo hago">"Lo hago diferente o no lo hago."</option>
+                    <option value="Primero concepto, luego forma">"Primero concepto, luego forma."</option>
+                    <option value="El diseño también es estrategia">"El diseño también es estrategia."</option>
+                    <option value="Quiero que se sienta, no solo que se vea">"Quiero que se sienta, no solo que se vea."</option>
+                    <option value="Romper reglas también es diseño">"Romper reglas también es diseño."</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 5 (FINAL) -->
+            <div class="tab">
+                <h3>Pregunta 5</h3>
+                <p>¿Qué te frustra más como diseñador?</p>
+                <select name="E3_P5" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Que no entiendan tu proceso">Que no entiendan tu proceso</option>
+                    <option value="Que limiten tu creatividad">Que limiten tu creatividad</option>
+                    <option value="Trabajar sin concepto">Trabajar sin concepto</option>
+                    <option value="Que todo se vea igual">Que todo se vea igual</option>
+                    <option value="No tener libertad estética">No tener libertad estética</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="submit" style="flex:1">Enviar Todo</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

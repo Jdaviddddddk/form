@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Espacio 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>📍 Espacio 2</h2>
+        <form id="regForm" onsubmit="enviarFormularioFinal(event, 2)">
+            
+            <!-- PASO 1 -->
+            <div class="tab">
+                <h3>Pregunta 1</h3>
+                <p>¿Te afecta la poca interacción en tus publicaciones, historias o contenido en general?</p>
+                <select name="E2_P1" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <button type="button" class="next" onclick="nextPrev(1)">Siguiente</button>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="tab">
+                <h3>Pregunta 2</h3>
+                <p>¿Usarías una plataforma en la que encuentres proyectos de otros estudiantes?</p>
+                <select name="E2_P2_Enc" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="tab">
+                <h3>Pregunta 3</h3>
+                <p>¿Utilizas referentes al momento de crear? (Especifica cuál o cuáles)</p>
+                <input type="text" name="E2_P3" placeholder="Ej: Pinterest, Behance, Instagram..." required>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 4 -->
+            <div class="tab">
+                <h3>Pregunta 4</h3>
+                <p>¿Eres de los que ve tutoriales largos, o te basta con un tik tok de 1 minuto?</p>
+                <select name="E2_P4" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Tuto del yutu">Tuto del yutu (Largos)</option>
+                    <option value="El tikitoki">El tikitoki (1 minuto)</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 5 (FINAL) -->
+            <div class="tab">
+                <h3>Pregunta 5</h3>
+                <p>¿Sueles asistir a presentaciones de proyecto de algún compañero?</p>
+                <select name="E2_P5" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="submit" style="flex:1">Enviar Todo</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

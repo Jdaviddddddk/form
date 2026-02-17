@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Ganaste!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <div class="premio-animacion">🏆🎁🎉</div>
+        <h1>¡Felicidades!</h1>
+        <p>Has completado el recorrido de los 3 espacios.</p>
+        <p style="color: #ff9f43; font-weight: bold; font-size: 1.3rem;">
+            TU PREMIO:<br>
+            2x1 EN TU PRÓXIMA COMPRA
+        </p>
+        <p style="font-size: 0.9rem; color: #666;">Muestra esta pantalla en caja.</p>
+        
+        <button onclick="window.location.href='index.html'">Volver al inicio</button>
+    </div>
+
+    <script>
+        // Seguridad simple: Si entra directo a esta página sin haber hecho las encuestas, lo manda al inicio
+        if (!localStorage.getItem('encuesta_1') || !localStorage.getItem('encuesta_2') || !localStorage.getItem('encuesta_3')) {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

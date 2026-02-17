@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Espacio 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>📍 Espacio 1</h2>
+        <form id="regForm" onsubmit="enviarFormularioFinal(event, 1)">
+            
+            <!-- PASO 1 -->
+            <div class="tab">
+                <h3>Pregunta 1</h3>
+                <p>Compartes tus trabajos en redes sociales o prefieres ser un diseñador misterioso?</p>
+                
+                <label style="display:block; text-align:left; margin: 10px 0;">
+                    <input type="radio" name="E1_P3" value="Comparto mis trabajos"> Comparto mis trabajos
+                </label>
+                <label style="display:block; text-align:left; margin: 10px 0;">
+                    <input type="radio" name="E1_P3" value="Diseñador misterioso"> Diseñador misterioso
+                </label>
+                
+                <button type="button" class="next" onclick="nextPrev(1)">Siguiente</button>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="tab">
+                <h3>Pregunta 2</h3>
+                <p>¿Perteneces a alguna comunidad o fandom? (Ej: Otaku, Emo, Gamer...)</p>
+                <input type="text" name="E1_P4" placeholder="Escribe tu comunidad...">
+                
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="button" class="next" onclick="nextPrev(1)" style="flex:1">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- PASO 3 (FINAL) -->
+            <div class="tab">
+                <h3>Pregunta 3</h3>
+                <p>¿Cómo te sientes cuando ves proyectos muy bien logrados? (Ej: Frustrado, Inspirado...)</p>
+                <input type="text" name="E1_P5" placeholder="Tu respuesta...">
+                
+                <div style="display:flex; gap:10px;">
+                    <button type="button" class="prev" onclick="nextPrev(-1)" style="flex:1">Atrás</button>
+                    <button type="submit" style="flex:1">Enviar Todo</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
